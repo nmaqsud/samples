@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
     - name: Install FIGlet
-      command: "zypper –n install FIGlet"
+      command: "zypper –n install figlet"
       register: shell_out
     - name: Print the output
       debug:
@@ -18,4 +18,4 @@
 
 
     - name: Remove FIGlet
-      command: "zypper –n remove FIGlet"
+      command: "zypper –n remove figlet"
