@@ -17,7 +17,7 @@
         msg: "{{ shell_out.stdout_lines }}"
         
     - name: Try it out
-      command: "figlet LaMa Rocks!"
+      command: "figlet -w LaMa Rocks!"
       register: shell_out
     - name: Print the output
       debug:
@@ -25,4 +25,4 @@
 
 
     - name: Remove FIGlet
-      command: "rpm -e figlet"
+      command: "sudo rpm -e figlet"
