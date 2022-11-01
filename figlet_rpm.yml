@@ -17,7 +17,7 @@
         msg: "{{ shell_out.stdout_lines }}"
         
     - name: Try it out
-      command: "figlet -w LaMa Rocks!"
+      command: "figlet LaMa Rocks!"
       register: shell_out
     - name: Print the output
       debug:
