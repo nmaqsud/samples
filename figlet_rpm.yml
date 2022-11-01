@@ -10,7 +10,7 @@
         msg: "{{ shell_out.stdout_lines }}"
 
     - name: Install FIGlet
-      command: "rpm -ivhp /tmp/figlet-2.2.5-bp153.1.17.x86_64.rpm"
+      command: "sudo rpm -ivhp /tmp/figlet-2.2.5-bp153.1.17.x86_64.rpm"
       register: shell_out
     - name: Print the output
       debug:
