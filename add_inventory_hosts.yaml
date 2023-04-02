@@ -5,11 +5,26 @@
 
   tasks:
         
-  - name: Add host
-    awx.awx.host:
-      name: alfonzo
-      description: "Local Host Group"
-      inventory: "Test_Demo"
-      state: present
-      variables:
-        example_var: 123
+- name: Add host to inventory in AWX
+  hosts: localhost
+  gather_facts: False
+  vars:
+    awx_base_url: http://localhost/api/v2/
+    awx_inventory: "Test_Demo"
+    awx_host_name: alfonzo
+    awx_host_description: My new host
+    awx_host_inventory_id: 2
+
+  tasks:
+    - name: Add host to AWX inventory
+      tower_host:
+        name: "{{ awx_host_name }}"
+        description: "{{ awx_host_description }}"
+        inventory: "{{ awx_inventory }}"
+        inventory_id: "{{ awx_host_inventory_id }}"
+        state: present
+        tower_username: "{{ awx_username }}"
+        tower_password: "{{ awx_password }}"
+        tower_host: "{{ awx_base_url }}"
+        tower_verify_ssl: False
+
