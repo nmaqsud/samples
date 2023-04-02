@@ -5,7 +5,7 @@
 
   tasks:
     - name: Create a VM
-      ec2_instance:
+      amazon.aws.ec2_instance:
         name: "{{ i_name }}"
         instance_type: "{{ i_type }}"
         image_id: ami-026ed2fc4c278f5c7
