@@ -13,4 +13,3 @@
         vpc_subnet_id: "{{ i_subnet }}"
         security_group: "{{ i_secgrp }}"
         state: started
-        wait_state: True
