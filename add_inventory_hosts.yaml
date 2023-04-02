@@ -9,7 +9,7 @@
     awx.awx.host:
       name: alfonzo
       description: "Local Host Group"
-      inventory: "Local Inventory"
+      inventory: "Test_Demo"
       state: present
       variables:
         example_var: 123
