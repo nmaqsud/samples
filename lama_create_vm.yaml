@@ -42,7 +42,7 @@
         groups: sap_app_server
 
     - name: DNS A record
-      route53:
+      amazon.aws.route53:
         state: present
         private_zone: yes
         zone: "lamapal.aws"
@@ -57,7 +57,7 @@
       debug: var=route53_result_1
 
     - name: DNS PTR record
-      route53:
+      amazon.aws.route53:
         state: present
         private_zone: yes
         zone: "200.30.172.in-addr.arpa"
