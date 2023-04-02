@@ -9,12 +9,10 @@
       amazon.aws.ec2_instance_info:
         region: us-east-1
         filters:
-          "tag:Name": "{{ i_name }}"
-      register: ec2_name
+          instance-state-name: running
+          tag:Name: "{{ i_name }}"
+      register: ec2_info
 
-    - name: Get instance IP addresses.
+    - name: Display private IP address
       debug:
-          msg: "{{ item.0 }} | {{ item.1 }}"
-      with_together:
-        - "{{ ec2_name.instances | map(attribute='tags.Name') | list }}"
-        - "{{ ec2_name.instances[0].private_ip_address }}"
+        var: ec2_info.instances[0].private_ip_address
