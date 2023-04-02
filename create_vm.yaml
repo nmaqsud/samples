@@ -1,0 +1,15 @@
+---
+- name: Using localhost
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Create a VM
+      steampunk.aws.ec2_instance:
+        name: "{{ i_name }}"
+        type: "{{ i_type }}"
+        ami: ami-026ed2fc4c278f5c7
+        key_pair: "{{ i_keypair }}"
+        subnet: "{{ i_subnet }}"
+        security_groups: "{{ i_secgrp }}"
+        wait_state: True
