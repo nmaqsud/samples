@@ -12,4 +12,5 @@
         key_name: "{{ i_keypair }}"
         vpc_subnet_id: "{{ i_subnet }}"
         security_group: "{{ i_secgrp }}"
+        region: us-east-1
         state: started
