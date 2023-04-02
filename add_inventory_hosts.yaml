@@ -1,18 +1,15 @@
 ---
-- name: Using localhost
+- name: Add hosts
   hosts: localhost
   gather_facts: false
 
   tasks:
         
-    - name: Get EC2 Info
-      amazon.aws.ec2_instance_info:
-        region: us-east-1
-        filters:
-          instance-state-name: running
-          tag:Name: "{{ i_name }}"
-      register: ec2_info
-
-    - name: Display private IP address
-      debug:
-        var: ec2_info.instances[0].private_ip_address
+  - name: Add host
+    awx.awx.host:
+      name: alfonzo
+      description: "Local Host Group"
+      inventory: "Local Inventory"
+      state: present
+      variables:
+        example_var: 123
