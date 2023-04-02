@@ -17,9 +17,9 @@
 
     - name: Get EC2 Info
       amazon.aws.ec2_instance_info:
+        region: us-east-1
         filters:
           "tag:Name": "{{ i_name }}"
-          region: us-east-1
       register: ec2_name
 
     - name: Get instance IP addresses.
