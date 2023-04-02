@@ -21,7 +21,6 @@
         name: "{{ awx_host_name }}"
         description: "{{ awx_host_description }}"
         inventory: "{{ awx_inventory }}"
-        inventory_id: "{{ awx_host_inventory_id }}"
         state: present
         tower_username: "{{ awx_username }}"
         tower_password: "{{ awx_password }}"
