@@ -19,25 +19,5 @@
       body:
         name: "{{ new_host_name }}"
         description: "New host added via Ansible"
-        enabled: true
-        variables: {}
-        groups: []
-        recent_jobs: []
-        instance_id: null
-        last_job: null
-        last_job_host_summary: null
-        last_job_failed: false
-        last_job_run: null
-        last_update: null
-        last_job_id: null
-        created: null
-        modified: null
-        last_login: null
-        ansible_facts_modified: null
-        ansible_macaddress: null
-        ansible_machine_id: null
-        ansible_machine_type: null
-        ansible_python_interpreter: null
-        ansible_ssh_host: "{{ new_host_address }}"
       validate_certs: no
       status_code: 201
