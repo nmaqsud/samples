@@ -11,7 +11,7 @@
 
   - name: Add new host
     uri:
-      url: "{{ awx_api_url }}/hosts/"
+      url: "{{ awx_api_url }}/inventories/2/hosts/"
       method: POST
       user: "{{ awx_username }}"
       password: "{{ awx_password }}"
