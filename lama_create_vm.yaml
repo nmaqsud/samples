@@ -82,6 +82,8 @@
 
 - name: Run on new host
   hosts: sap_app_server
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
   become: yes
   tasks:
     - name: "Check hostname"
