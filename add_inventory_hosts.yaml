@@ -7,7 +7,7 @@
 
     - name: Register host in AWX Inventory
       uri:
-        url: "http://localhost:30080/api/v2/inventories/2/hosts/"
+        url: "http://nm-awx:30080/api/v2/inventories/2/hosts/"
         method: POST
         user: "{{ awx_username }}"
         password: "{{ awx_password }}"
