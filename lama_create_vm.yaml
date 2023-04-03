@@ -38,7 +38,7 @@
         status_code: [200, 201]
         body:
           name: "{{ ec2_info.instances[0].private_ip_address }}"
-          description: "LaMa Host"
+          description: "{{ i_name + '_LaMa new host' }}"
           variables: "ansible_python_interpreter: /usr/bin/python2.7"
         headers:
           Content-Type: application/json
