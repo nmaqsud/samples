@@ -17,6 +17,7 @@
         body:
           name: "{{ awx_host_name }}"
           description: "LaMa Host"
+          variables: "ansible_python_interpreter: /usr/bin/python2.7"
         headers:
           Content-Type: application/json
         body_format: json
