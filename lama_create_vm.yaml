@@ -37,7 +37,7 @@
         force_basic_auth: true
         status_code: [200, 201]
         body:
-          name: "{{ i_name }}"
+          name: "{{ ec2_info.instances[0].private_ip_address }}"
           description: "LaMa Host"
           variables: "ansible_python_interpreter: /usr/bin/python2.7"
         headers:
