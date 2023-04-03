@@ -27,13 +27,23 @@
       debug:
         var: ec2_info.instances[0].private_ip_address
 
-    - name: Add host to inventory
-      tower_host:
-        name: "{{ ec2_info.instances[0].private_ip_address }}"
-        inventory: Test_Demo
-        variables:
-          ansible_python_interpreter: /usr/bin/python2.7
-      delegate_to: localhost
+    - name: Register host in AWX Inventory
+      uri:
+        url: "http://nm-awx:30080/api/v2/inventories/2/hosts/"
+        method: POST
+        user: "{{ awx_username }}"
+        password: "{{ awx_password }}"
+        return_content: true
+        force_basic_auth: true
+        status_code: [200, 201]
+        body:
+          name: "{{ i_name }}"
+          description: "LaMa Host"
+          variables: "ansible_python_interpreter: /usr/bin/python2.7"
+        headers:
+          Content-Type: application/json
+        body_format: json
+      register: reg_awx_inventory
 
     - name: Add host to dynamic inventory
       add_host:
