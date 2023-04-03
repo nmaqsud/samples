@@ -13,6 +13,7 @@
         password: "{{ awx_password }}"
         return_content: true
         force_basic_auth: true
+        status_code: [200, 201]
         body:
           name: "{{ awx_host_name }}"
           description: "LaMa Host"
