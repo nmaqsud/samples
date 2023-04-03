@@ -8,15 +8,6 @@
     new_host_address: "8.8.8.8"
 
   tasks:
-  - name: Get inventory details
-    uri:
-      url: "{{ awx_api_url }}/inventories/{{ awx_inventory_id }}/"
-      method: GET
-      user: "{{ awx_username }}"
-      password: "{{ awx_password }}"
-      validate_certs: no
-      status_code: 200
-    register: inventory_details
 
   - name: Add new host
     uri:
@@ -28,7 +19,6 @@
       body:
         name: "{{ new_host_name }}"
         description: "New host added via Ansible"
-        inventory: "{{ inventory_details.json.id }}"
         enabled: true
         variables: {}
         groups: []
